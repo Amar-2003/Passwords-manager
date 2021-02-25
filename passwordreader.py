@@ -1,6 +1,5 @@
 import csv
-def split(word):
-    return [char for char in word] 
+
 hint = input("enter hint for the password:")
 key = int(input("Enter key given in passwordgenerator.py:"))
 
@@ -14,3 +13,5 @@ with open("passwords.csv","r") as file:
                 value -= key
                 print(chr(value),end="")
 print("")
+def split(word):
+    return [char for char in word] 

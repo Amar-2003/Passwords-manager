@@ -1,8 +1,8 @@
 import random
 import csv
-key = int(input("Enter your key between -10 and 10:"))
 hint = input("Enter the hint for where the password is applied:")
 n = int(input("Enter the number of characters required:"))
+key = int(input("Enter your key between -10 and 10:"))
 print("Your ciphered password have been added to csv")
 print("Your orginal password: ",end="")
 password = ""
