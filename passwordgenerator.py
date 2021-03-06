@@ -16,7 +16,7 @@ key1q = tk.Label(text = "Enter your preferred key(between -40 and 10):")
 key1q.grid(column = 0,row = 2)
 key1 = tk.Entry()
 key1.grid(column = 1,row = 2)
-
+window.mainloop()
 #hint = input("Enter the hint for where the password is applied:")
 #n = int(input("Enter the number of characters required:"))
 #key = int(input("Enter your key between -40 and 10:"))
