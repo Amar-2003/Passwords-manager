@@ -17,18 +17,35 @@ def password_generator():
         passwordcipher += chr(x+key1)
     password1 = tk.Label(text = "Your password for the hint "+hint1+" is "+password)
     password1.grid(column = 2,row = 3)
-    with open("passwords.csv","w") as file:
+    with open("passwords.csv","a") as file:
         writer = csv.writer(file)
         writer.writerow([hint1,passwordcipher])
     csvresult = tk.Label(text = "Your ciphered password have been stored ")
     csvresult.grid(column = 2,row = 2)
 
 #Function For reader
+def password_reader():
+    with open("passwords.csv","r") as file:
+        csvreader = csv.reader(file)
+        key2 = int(key2entry.get())
+        hint2 = str(hint2entry.get())
+        password = ""
+        for row in csvreader:
+            if(row[0] == hint2):
+                ciphered = list(row[1])
+                for letter in ciphered:
+                    value = ord(letter)
+                    value -= key2
+                    password += chr(value)
+    password2 = tk.Label(text = "Your password for the hint "+hint2+" is "+ password)
+    password2.grid(column = 2,row = 9)
+                    
     
 
 window = tk.Tk()
 window.title("Password Manager")
-window.geometry("800x600")
+#window size
+window.geometry("800x900")
 #*************************Password generator**********************************
 #heading password generator
 title1 = tk.Label(text = "Password Generator",font =('Arial',20))
@@ -72,7 +89,7 @@ key2q.grid(column = 0,row = 7)
 key2entry = tk.Entry()
 key2entry.grid(column = 1,row = 7)
 #Button
-btn2 = tk.Button(text = "Get password")
+btn2 = tk.Button(text = "Get password",command = password_reader)
 btn2.grid(column = 1,row = 8)
 
 
