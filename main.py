@@ -2,6 +2,9 @@ import random
 import csv
 import tkinter as tk
 #******************************Functions****************************************
+
+
+#Function for generator
 def password_generator():
     hint1 = str(hint1entry.get())
     n = int(digits.get())
@@ -19,6 +22,8 @@ def password_generator():
         writer.writerow([hint1,passwordcipher])
     csvresult = tk.Label(text = "Your ciphered password have been stored ")
     csvresult.grid(column = 2,row = 2)
+
+#Function For reader
     
 
 window = tk.Tk()
@@ -66,6 +71,10 @@ key2q = tk.Label(text = "Enter the key:")
 key2q.grid(column = 0,row = 7)
 key2entry = tk.Entry()
 key2entry.grid(column = 1,row = 7)
+#Button
+btn2 = tk.Button(text = "Get password")
+btn2.grid(column = 1,row = 8)
+
 
 
 window.mainloop()
