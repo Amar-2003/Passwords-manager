@@ -1,4 +1,4 @@
-# Random-password-generator
+# Password-Manager
 A program to generate random passwords for users and store it.This program stores the password encrypted by a key(user should remember that number).
 Instruction for user:
   1.Run main.py
