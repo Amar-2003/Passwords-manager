@@ -23,11 +23,11 @@ def password_generator():
 
 window = tk.Tk()
 window.title("Password Manager(Generator)")
-window.geometry("600x600")
+window.geometry("800x400")
 #Password generator part
 #heading password generator
 title = tk.Label(text = "Password Generator",font =('Arial',20))
-title.grid(column = 0,row = 0)
+title.grid(column = 1,row = 0)
 #getting hint for password
 hintq1 = tk.Label(text = "Enter hint for the password:")
 hintq1.grid(column = 0,row = 1)
