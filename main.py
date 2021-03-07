@@ -103,8 +103,8 @@ key2entry.grid(column = 1,row = 7)
 btn2 = tk.Button(text = "Get password",command = password_reader)
 btn2.grid(column = 1,row = 8)
 
-
-root.mainloop()
 root.withdraw()
+root.mainloop()
+
 window.mainloop()
 
