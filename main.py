@@ -3,6 +3,7 @@ import csv
 import tkinter as tk
 #******************************Functions****************************************
 
+window = tk.Tk()
 
 #Function for generator
 def password_generator():
@@ -22,6 +23,10 @@ def password_generator():
         writer.writerow([hint1,passwordcipher])
     csvresult = tk.Label(text = "Your ciphered password have been stored ")
     csvresult.grid(column = 2,row = 2)
+    root.clipboard_clear()
+    root.clipboard_append(password)
+    clipboardresult1 = tk.Label(text = "Your password has been copied")
+    clipboardresult1.grid(column = 2,row = 4)
 
 #Function For reader
 def password_reader():
@@ -39,13 +44,19 @@ def password_reader():
                     password += chr(value)
     password2 = tk.Label(text = "Your password for the hint "+hint2+" is "+ password)
     password2.grid(column = 2,row = 9)
+    root.clipboard_clear()
+    root.clipboard_append(password)
+    clipboardresult2 = tk.Label(text = "Your password has been copied")
+    clipboardresult2.grid(column = 2,row = 10)
                     
     
 
-window = tk.Tk()
+
+root = tk.Tk()
+
+
 window.title("Password Manager")
-#window size
-window.geometry("800x900")
+
 #*************************Password generator**********************************
 #heading password generator
 title1 = tk.Label(text = "Password Generator",font =('Arial',20))
@@ -92,7 +103,8 @@ key2entry.grid(column = 1,row = 7)
 btn2 = tk.Button(text = "Get password",command = password_reader)
 btn2.grid(column = 1,row = 8)
 
-
+root.withdraw()
+root.mainloop()
 
 window.mainloop()
 
