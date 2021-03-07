@@ -1,7 +1,7 @@
 import random
 import csv
 import tkinter as tk
-#Functions
+#******************************Functions****************************************
 def password_generator():
     hint1 = str(hint1entry.get())
     n = int(digits.get())
@@ -13,21 +13,21 @@ def password_generator():
         password += chr(x)
         passwordcipher += chr(x+key1)
     password1 = tk.Label(text = "Your password for the hint "+hint1+" is "+password)
-    password1.grid(column = 0,row = 5)
+    password1.grid(column = 2,row = 3)
     with open("passwords.csv","w") as file:
         writer = csv.writer(file)
         writer.writerow([hint1,passwordcipher])
     csvresult = tk.Label(text = "Your ciphered password have been stored ")
-    csvresult.grid(column = 0,row = 6)
+    csvresult.grid(column = 2,row = 2)
     
 
 window = tk.Tk()
-window.title("Password Manager(Generator)")
-window.geometry("800x400")
-#Password generator part
+window.title("Password Manager")
+window.geometry("800x600")
+#*************************Password generator**********************************
 #heading password generator
-title = tk.Label(text = "Password Generator",font =('Arial',20))
-title.grid(column = 1,row = 0)
+title1 = tk.Label(text = "Password Generator",font =('Arial',20))
+title1.grid(column = 1,row = 0)
 #getting hint for password
 hintq1 = tk.Label(text = "Enter hint for the password:")
 hintq1.grid(column = 0,row = 1)
@@ -50,13 +50,23 @@ digits.grid(column = 1,row = 3)
 btn1 = tk.Button(text = "Create a password",command = password_generator)
 btn1.grid(column = 1,row = 4)
 
+#*************************Password Reader*************************************
+
+#title
+title2 = tk.Label(text = "Password Reader",font = ('Arial',20))
+title2.grid(row = 5,column = 1)
+
+#Getting hint
+hintq2 = tk.Label(text = "Enter hint for password:")
+hintq2.grid(column = 0,row = 6)
+hint2entry = tk.Entry()
+hint2entry.grid(column = 1,row = 6)
+#getting key
+key2q = tk.Label(text = "Enter the key:")
+key2q.grid(column = 0,row = 7)
+key2entry = tk.Entry()
+key2entry.grid(column = 1,row = 7)
+
 
 window.mainloop()
-#hint = input("Enter the hint for where the password is applied:")
-#n = int(input("Enter the number of characters required:"))
-#key = int(input("Enter your key between -40 and 10:"))
-#print("Your ciphered password have been added to csv")
-#print("Your orginal password: ",end="")
 
-#print(password)
-#
